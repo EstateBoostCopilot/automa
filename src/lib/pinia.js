@@ -2,6 +2,8 @@ import { markRaw } from 'vue';
 import { createPinia } from 'pinia';
 import browser from 'webextension-polyfill';
 
+// Redux in Vue
+
 function saveToStoragePlugin({ store, options }) {
   const newBrowser = markRaw(browser);
 

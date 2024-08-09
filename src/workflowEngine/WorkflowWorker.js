@@ -193,11 +193,13 @@ class WorkflowWorker {
       };
 
       if (index === 0) {
+        // The first connections
         this.executeBlock(this.engine.blocks[id], {
           prevBlockData,
           ...execParam,
         });
       } else {
+        // For two or more connections
         const state = cloneDeep({
           windowId: this.windowId,
           loopList: this.loopList,
