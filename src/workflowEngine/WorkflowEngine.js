@@ -6,9 +6,12 @@ import { clearCache, sleep, parseJSON, isObject } from '@/utils/helper';
 import dbStorage from '@/db/storage';
 import WorkflowWorker from './WorkflowWorker';
 
+// Get blocks from shared data (constants) and custom blocks (which are empty)
 let blocks = getBlocks();
 
 class WorkflowEngine {
+  // engine serves as the main class for workflow execution
+  // consist of states(saving the progress of the workflow) and worker(actually executes the automation). Loggers for logging.
   constructor(workflow, { states, logger, blocksHandler, isPopup, options }) {
     this.id = nanoid();
     this.states = states;
