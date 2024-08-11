@@ -35,10 +35,10 @@ function onTabLoaded({ tabLoadedUrl, activeTabLoaded, timeout }, { id }) {
         return;
       }
 
-      browser.tabs
-        .get(id)
+      browser.tabs // get the tab with tabId
+        .get(id) // id of the tab (source: https://developer.chrome.com/docs/extensions/reference/api/tabs#method-get)
         .then((tab) => {
-          if (tab.status === 'complete') {
+          if (tab.status === 'complete') { // loading status = "unloaded" | "loading" | "complete" (source: https://developer.chrome.com/docs/extensions/reference/api/tabs#enum_1)
             resolve();
             return;
           }
@@ -53,7 +53,7 @@ function onTabLoaded({ tabLoadedUrl, activeTabLoaded, timeout }, { id }) {
       : tabLoadedUrl.replace(/\s/g, '').split(',');
     const checkTabsStatus = () => {
       browser.tabs
-        .query({
+        .query({ // query the tab that have the url = `url` with loading status = `loading`
           url,
           status: 'loading',
         })
