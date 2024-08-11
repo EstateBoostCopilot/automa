@@ -342,7 +342,7 @@ export function cleanUp() {
 }
 
 export default async function (mainFrame) {
-  const { isRecording } = await browser.storage.local.get('isRecording');
+  const { isRecording } = await browser.storage.local.get('isRecording'); // accessing local storage
 
   isMainFrame = mainFrame;
 

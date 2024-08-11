@@ -23,7 +23,7 @@ import selectorFrameContext from '../../elementSelector/selectorFrameContext';
       selectorFrameContext();
     }
 
-    browser.runtime.onMessage.addListener(function messageListener({ type }) {
+    browser.runtime.onMessage.addListener(function messageListener({ type }) { // receive event from browser.runtime.sendMessage (source: https://developer.chrome.com/docs/extensions/reference/api/runtime#example-content-msg)
       if (type === 'recording:stop') {
         if (elementSelectorInstance) {
           elementSelectorInstance.unmount();

@@ -1,7 +1,7 @@
 import browser from 'webextension-polyfill';
 
 export default async function (detail, save = true) {
-  const { isRecording, recording } = await browser.storage.local.get([
+  const { isRecording, recording } = await browser.storage.local.get([ // accessing local storage (*Note browser = chrome when looking at chrome extension with polyfill)
     'isRecording',
     'recording',
   ]);

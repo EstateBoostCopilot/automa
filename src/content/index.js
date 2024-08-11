@@ -251,7 +251,7 @@ async function messageListener({ data, source }) {
 
   automa('content');
 
-  browser.runtime.onMessage.addListener(async (data) => {
+  browser.runtime.onMessage.addListener(async (data) => { // receive message from  browser.runtime.sendMessage
     const asyncExecuteBlock = async (block) => {
       try {
         const res = await executeBlock(block);

@@ -53,7 +53,7 @@ class BackgroundUtils {
     });
 
     await waitTabLoaded({ tabId: tab.id });
-    const result = await browser.tabs.sendMessage(tab.id, { type, data });
+    const result = await browser.tabs.sendMessage(tab.id, { type, data }); // will fire browser.runtime.onMessage
 
     return result;
   }

@@ -14,7 +14,7 @@ export function generateStyleEl(css, classes = true) {
 export default async function (appRoot, customCss = '') {
   try {
     const response = await fetch(
-      browser.runtime.getURL('/elementSelector.css')
+      browser.runtime.getURL('/elementSelector.css') // convert a relative path to an absolute path ( relative to the extension, source: https://developer.chrome.com/docs/extensions/reference/api/runtime#method-getURL )
     );
     const mainCSS = await response.text();
     const appStyleEl = generateStyleEl(mainCSS + customCss, false);

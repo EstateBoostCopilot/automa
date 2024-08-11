@@ -49,7 +49,7 @@ async function handleScheduleBackup() {
       localBackupSettings.folderName ? `${localBackupSettings.folderName}/` : ''
     }${dayjs().format('DD-MMM-YYYY--HH-mm')}.json`;
 
-    await browser.downloads.download({
+    await browser.downloads.download({ // download the file
       filename,
       url: `data:application/json;base64,${base64}`,
     });

@@ -123,7 +123,7 @@ message.on('dashboard:refresh-packages', async () => {
   });
 });
 
-message.on('workflow:stop', (stateId) => workflowState.stop(stateId));
+message.on('workflow:stop', (stateId) => workflowState.stop(stateId)); // sent from src\workflowEngine\index.js, src\components\newtab\workflow\editor\EditorDebugging.vue
 message.on('workflow:execute', async (workflowData, sender) => {
   const context = workflowData.settings.execContext;
   const isMV2 = browser.runtime.getManifest().manifest_version === 2;

@@ -249,11 +249,11 @@ const messageEvents = {
         });
     }
   },
-  'workflow:execute': function ({ data, options }) {
+  'workflow:execute': function ({ data, options }) { // sent from a lot of places
     startWorkflowExec(data, options ?? data?.options ?? {});
   },
   'recording:stop': stopRecording,
-  'background--recording:stop': stopRecording,
+  'background--recording:stop': stopRecording, // sent from "src\content\services\recordWorkflow\App.vue"
 };
 
 browser.runtime.onMessage.addListener(({ type, data }) => {
